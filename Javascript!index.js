@@ -7,13 +7,13 @@ var InputUser = document.getElementById("InputUser");
 
 const registeredDate = new Date();
 
-let month = registeredDate.getUTCMonth();
-let day = registeredDate.getUTCDay();
-let year = registeredDate.getUTCFullYear();
+let month = registeredDate.getMonth() + 1;
+let day = registeredDate.getDate();
+let year = registeredDate.getFullYear();
 let date = month + "." + day + "." + year;
 
-let hour = registeredDate.getUTCHours();
-let minute = registeredDate.getUTCMinutes();
+let hour = registeredDate.getHours();
+let minute = registeredDate.getMinutes();
 let time = hour + ":" + minute;
 
 const TextBox = document.createElement("div");
