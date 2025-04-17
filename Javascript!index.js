@@ -1,5 +1,5 @@
-var body = document.querySelector("body");
 var backgroundBox = document.getElementById("backgroundBox");
+var TextBox = document.getElementById("TextBox");
 
 var SendButton = document.getElementById("SendButton");
 var TextInput = document.getElementById("TextInput");
@@ -16,18 +16,21 @@ let hour = registeredDate.getHours();
 let minute = registeredDate.getMinutes();
 let time = hour + ":" + minute;
 
-const TextBox = document.createElement("div");
-
 const user = document.createElement("code");
 const message = document.createElement("code");
 const BoldUser = document.createElement("b");
 
 var username = InputUser.innerHTML;
 
-var msgPos = 77.5;
+var TBoffsetHeight = TextBox.offsetHeight;
+var TBoffsetTop = TextBox.offsetTop;
 
-TextBox.id = "TextBox";
-TextBox.style.top += msgPos + "%";
+document.addEventListener("input",
+function() {
+    
+    let diff = TBoffsetHeight -= TBoffsetTop;
+    TextBox.style.bottom = diff + "%";
+})
 
 user.id = "Fonts";
 user.className = "User";
@@ -39,13 +42,13 @@ message.style.fontFamily = "Times";
 
 function append() {
     backgroundBox.appendChild(TextBox);
-
+    
     TextBox.appendChild(BoldUser);
     TextBox.appendChild(message);
     BoldUser.appendChild(user);
 }
 
-body.addEventListener("click",
+document.addEventListener("click",
 function() {
     if(InputUser.innerHTML == "ACCOUNTNULL")
     {TextInput.innerHTML = "Please make an account to chat!";}
@@ -55,7 +58,6 @@ if(InputUser.innerHTML == "ACCOUNTNULL")
 {TextInput.innerHTML = "Please make an account to chat!";}
 else
 {TextInput.innerHTML = "";}
-
 
 TextInput.addEventListener("keyup",
 function() {
@@ -97,6 +99,11 @@ function() {
     
     message.textContent = repFilter;
     message.textContent = repMsg;
+
+    if(message.textContent == "")
+    {TextBox.style.display = "none";}
+    else
+    {TextBox.style.display = "inline";}
 
     if(InputUser.innerHTML == "ACCOUNTNULL")
     {return}

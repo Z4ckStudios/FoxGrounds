@@ -6,13 +6,15 @@ body {
 }
 #TextBox {
     position: absolute;
-    left: 0.4%;
+    left: 50%;
+    transform: translate(-50%, 0%);
     background: #444444;
-    width: 96.6%;
+    width: 97%;
     font-size: 18px;
     border-radius: 10px;
     padding: 10px;
     border: 5px solid #222222;
+    display: none;
 }
 #Fonts {
     font-family: Arial;
@@ -26,22 +28,30 @@ body {
 }
 #backgroundBox {
     position: absolute;
-    top: 50%;
+    top: 44%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
     height: 90%;
     background: #331133;
     border-radius: 10px;
-    border: 5px solid #220022
-
+    border: 5px solid #220022;
+    overflow-y: scroll;
+}
+#BB2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
 }
 #InputBox {
     position: absolute;
-    top: 94%;
+    top: 97%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 99%;
+    width: 90.9%;
     height: 10%;
     background: #220022;
     border-radius: 5px;
@@ -51,7 +61,7 @@ body {
     top: -34%;
     left: 0.75%;
     height: 53.3%;
-    width: 21.7%;
+    width: 25%;
     font-size: 24px;
     font-family: Arial;
     text-align: center;
@@ -64,11 +74,11 @@ body {
 #TextInput {
     position: relative;
     top: -15%;
-    left: 24.1%;
+    left: 27.5%;
     outline: none;
     font-size: 14px;
     text-wrap: wrap;
-    width: 67.2%;
+    width: 63.3%;
     height: 53.3%;
     color: white;
     font-family: Times;
@@ -80,7 +90,7 @@ body {
 #SendButton {
     position: relative;
     top: -106%;
-    left: 93%;
+    left: 92.5%;
     height: 60%;
     font-size: 24px;
     font-family: Arial;
