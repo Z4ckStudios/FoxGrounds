@@ -1,0 +1,96 @@
+body {
+    background: black;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+#TextBox {
+    position: absolute;
+    left: 0.4%;
+    background: #444444;
+    width: 96.6%;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 5px solid #222222;
+}
+#Fonts {
+    font-family: Arial;
+}
+.User {
+    color: white;
+}
+.Message {
+    color: #BBBBBB;
+    margin-left: 10px;
+}
+#backgroundBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: #331133;
+    border-radius: 10px;
+    border: 5px solid #220022
+
+}
+#InputBox {
+    position: absolute;
+    top: 94%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 99%;
+    height: 10%;
+    background: #220022;
+    border-radius: 5px;
+}
+#InputUser {
+    position: absolute;
+    top: -34%;
+    left: 0.75%;
+    height: 53.3%;
+    width: 21.7%;
+    font-size: 24px;
+    font-family: Arial;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background: #330033;
+    padding: 5px;
+    border-radius: 5px;
+}
+#TextInput {
+    position: relative;
+    top: -15%;
+    left: 24.1%;
+    outline: none;
+    font-size: 14px;
+    text-wrap: wrap;
+    width: 67.2%;
+    height: 53.3%;
+    color: white;
+    font-family: Times;
+    background: #770077;
+    padding: 5px;
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+#SendButton {
+    position: relative;
+    top: -106%;
+    left: 93%;
+    height: 60%;
+    font-size: 24px;
+    font-family: Arial;
+    font-weight: bold;
+    color: white;
+    background: none;
+    padding: 5px;
+    border-radius: 5px;
+    user-select: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
