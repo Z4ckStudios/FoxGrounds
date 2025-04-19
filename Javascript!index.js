@@ -1,36 +1,20 @@
 var backgroundBox = document.getElementById("backgroundBox");
-var TextBox = document.getElementById("TextBox");
 
 var SendButton = document.getElementById("SendButton");
 var TextInput = document.getElementById("TextInput");
 var InputUser = document.getElementById("InputUser");
 
-const registeredDate = new Date();
-
-let month = registeredDate.getMonth() + 1;
-let day = registeredDate.getDate();
-let year = registeredDate.getFullYear();
-let date = month + "." + day + "." + year;
-
-let hour = registeredDate.getHours();
-let minute = registeredDate.getMinutes();
-let time = hour + ":" + minute;
-
+const TextBox = document.createElement("div");
 const user = document.createElement("code");
 const message = document.createElement("code");
 const BoldUser = document.createElement("b");
 
+var SentMessage = "";
+
 var username = InputUser.innerHTML;
 
-var TBoffsetHeight = TextBox.offsetHeight;
-var TBoffsetTop = TextBox.offsetTop;
-
-document.addEventListener("input",
-function() {
-    
-    let diff = TBoffsetHeight -= TBoffsetTop;
-    TextBox.style.bottom = diff + "%";
-})
+TextBox.id = "TextBox";
+TextBox.style.bottom = "0%";
 
 user.id = "Fonts";
 user.className = "User";
@@ -40,13 +24,15 @@ message.id = "Fonts";
 message.className = "Message";
 message.style.fontFamily = "Times";
 
-function append() {
-    backgroundBox.appendChild(TextBox);
-    
-    TextBox.appendChild(BoldUser);
-    TextBox.appendChild(message);
-    BoldUser.appendChild(user);
-}
+if(InputUser.innerHTML == "ACCOUNTNULL")
+{TextInput.innerHTML = "Please make an account to chat!";}
+else
+{TextInput.innerHTML = "";}
+
+document.addEventListener("keyup",
+function() {
+    SentMessage = TextInput.innerHTML;
+})
 
 document.addEventListener("click",
 function() {
@@ -54,36 +40,53 @@ function() {
     {TextInput.innerHTML = "Please make an account to chat!";}
 })
 
-if(InputUser.innerHTML == "ACCOUNTNULL")
-{TextInput.innerHTML = "Please make an account to chat!";}
-else
-{TextInput.innerHTML = "";}
+var TB = TextBox.cloneNode(true);
+var valuenum = 0;
 
-TextInput.addEventListener("keyup",
-function() {
-    
-    message.textContent = TextInput.innerHTML + " | " + date + " * " + time
-})
+var i = 1;
 
 SendButton.addEventListener("click",
 function() {
 
-    var wordFilter = {
-        "Nigger": "nigger",
-        "Nigga": "nigga",
-    
-        "Faggot": "faggot",
-        "Fags": "fags",
-        "Fag": "fag",
-    };
-    var wordBan = {
-        "nigger": "******",
-        "nigga": "*****",
-        
-        "faggot": "******",
-        "fags": "****",
-        "fag": "***",
+    const registeredDate = new Date();
 
+    let month = registeredDate.getMonth() + 1;
+    let day = registeredDate.getDate();
+    let year = registeredDate.getFullYear();
+
+    let hour = registeredDate.getHours() + 0;
+    let minute = registeredDate.getMinutes() + 0;
+
+    let hourFormat = "";
+    let minuteFormat = "";
+
+    if(hour < 10)
+    {hourFormat = "0" + hour;}
+    else
+    {hourFormat = hour;}
+
+    if(minute < 10)
+    {minuteFormat = "0" + minute;}
+    else
+    {minuteFormat = minute;}
+
+    let date = month + "." + day + "." + year;
+    let time = hourFormat + ":" + minuteFormat;
+
+    UserMsgs = [
+        SentMessage,
+    ];
+    UserMsgs.forEach(UserMsg => {
+        message.textContent = UserMsg +
+        " | " + date + " * " + time;
+    });
+
+    var EClass = "E" + i;
+
+    TextBox.className = EClass;
+    TextBox.style.bottom = valuenum + "%";
+      
+    var textRemoves = {
         "&nbsp;": " ",
         "&gt;": ">",
         "&lt;": "<",
@@ -94,36 +97,48 @@ function() {
         ">": "",
         "/": "",
     };
-    var repFilter = message.textContent.replace(/Nigger|Nigga|Faggot|Fags|Fag/gi, function (e) {return wordFilter[e] || wordBan[e]})
-    var repMsg = repFilter.replace(/Nigger|[/]|Nigga|Faggot|Fags|Fag|&nbsp;|&gt;|&lt;|&amp;|div|<|>/gi, function (e) {return wordBan[e]})
-    
-    message.textContent = repFilter;
+    var repMsg = message.textContent.replace(/&nbsp;|&gt;|&lt;|&amp;|div|<|>/gi, function (e) {
+        return textRemoves[e]
+    })
     message.textContent = repMsg;
-
-    if(message.textContent == "")
-    {TextBox.style.display = "none";}
-    else
-    {TextBox.style.display = "inline";}
-
+    
     if(InputUser.innerHTML == "ACCOUNTNULL")
-    {return}
+        {return}
     else
     if(TextInput.innerHTML == "" || TextInput.innerHTML == "<br>" || TextInput.innerHTML == "&nbsp;" || TextInput.innerHTML == "/" || TextInput.innerHTML.includes("<div><br>"))
-    {return}
-    else
-    {TextInput.innerHTML = "";
-    append();}
+        {return}
+    else {
+        var TB = TextBox.cloneNode(true);
+        var U = user.cloneNode(true);
+        var M = message.cloneNode(true);
+        var BU = BoldUser.cloneNode(true);
+
+        i += 1;
+
+        BoxChat = document.querySelector(".E" + i);
+        valuenum -= 11.1;
+
+        TextInput.innerHTML = "";
+
+        ScrollToBottom = setInterval(function() {
+            backgroundBox.scrollBy(0, 50);
+            clearInterval(ScrollToBottom);
+        }, 100);
+
+        backgroundBox.appendChild(TB);
+        TB.appendChild(BU);
+        TB.appendChild(M);
+        BU.appendChild(U);
+    }
 })
 SendButton.addEventListener("mouseover",
 function() {
-
     SendButton.style.cursor = "pointer";
     SendButton.style.color = "#FFAAFF";
     SendButton.style.textDecoration = "underline";
 })
 SendButton.addEventListener("mouseout",
 function() {
-
     SendButton.style.color = "#FFFFFF";
     SendButton.style.textDecoration = "none";
 })
