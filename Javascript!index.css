@@ -34,7 +34,7 @@ body {
     width: 90%;
     height: 90%;
     background: #331133;
-    background: image-set("/ZSB-Images/SwirlyBackground.png");
+    background: image-set("ZSB-Images/SwirlyBackground.png");
     background-size: 100%;
     background-repeat: repeat-y;
     border-radius: 10px;
