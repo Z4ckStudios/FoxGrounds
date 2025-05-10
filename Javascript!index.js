@@ -60,6 +60,10 @@ if(InputUser.innerHTML == "ACCOUNTNULL")
 else
 {TextInput.innerHTML = "";}
 
+document.addEventListener("keydown",
+function() {
+    SentMessage = TextInput.innerHTML;
+})
 document.addEventListener("keyup",
 function() {
     SentMessage = TextInput.innerHTML;
