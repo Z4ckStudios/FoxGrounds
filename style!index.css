@@ -1,0 +1,163 @@
+body {
+    background: black;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+#TextBox {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    /* background: #882288; */
+    width: 97.5%;
+    font-size: 18px;
+    border-radius: 10px;
+    /* padding: 10px; */
+    border: 5px solid /*#662266*/ transparent;
+    text-wrap: wrap;
+}
+#Fonts {
+    font-family: Arial;
+}
+.User {
+    color: #FFCCFF;
+}
+.Message {
+    color: #FF99FF;
+    margin-left: 5px;
+}
+#backgroundBox {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: #331133;
+    background: image-set("PFG-Images/SwirlyBackground.png");
+    background-size: 100%;
+    background-repeat: repeat-y;
+    border-radius: 10px;
+    border: 5px solid #220022;
+    overflow-y: scroll;
+}
+#BB2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+}
+#InputBox {
+    position: absolute;
+    top: 97%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90.9%;
+    height: 10%;
+    background: #220022;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#InputUser {
+    position: absolute;
+    top: -34%;
+    left: 0.75%;
+    height: 53.3%;
+    width: 25%;
+    font-size: 24px;
+    font-family: Arial;
+    text-align: center;
+    font-weight: bold;
+    color: #FFCCFF;
+    background: #330033;
+    padding: 5px;
+    border-radius: 5px;
+}
+#TextInput {
+    position: relative;
+    top: -15%;
+    left: 27.5%;
+    outline: none;
+    font-size: 14px;
+    text-wrap: wrap;
+    width: 63.3%;
+    height: 53.3%;
+    color: #FFCCFF;
+    font-family: Times;
+    background: #770077;
+    padding: 5px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    overflow-y: hidden;
+}
+#SendButton {
+    position: relative;
+    top: -106%;
+    left: 92.5%;
+    height: 60%;
+    font-size: 24px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #FFCCFF;
+    background: none;
+    padding: 5px;
+    border-radius: 5px;
+    user-select: none;
+}
+#MiddleContent {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#PFGLogo {
+    width: 300px;
+    height: 300px;
+}
+#MiddleText {
+    position: absolute;
+    top: 292.5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Arial";
+    font-size: 24px;
+    text-wrap: nowrap;
+    font-weight: bold;
+    color: #FF99FF;
+}
+::-webkit-scrollbar {
+    background: #551155;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-button {
+    background: #331133;
+    border-radius: 10px;
+    border: 1px solid #990099;
+
+}
+::-webkit-scrollbar-button:hover {
+    background: #221122;
+    border-radius: 10px;
+    border: 2px solid #990099;
+    cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+    background: #441144;
+    border-radius: 10px;
+    border: 1px solid #990099;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #331133;
+    border-radius: 10px;
+    border: 2px solid #990099;
+    cursor: pointer;
+}
+::-webkit-scrollbar-track-piece {
+    border-radius: 10px;
+    border: 1px solid #990099;
+}
+::-webkit-scrollbar-corner {
+    background: none;
+}
