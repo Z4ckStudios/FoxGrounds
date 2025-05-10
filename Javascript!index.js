@@ -1,10 +1,12 @@
+var url = "https://z4ckstudios.github.io/FoxGrounds/";
+window.history.replaceState(null, document.title, url);
+
 var backgroundBox = document.getElementById("backgroundBox");
+var MiddleContent = document.getElementById("MiddleContent");
 
 var SendButton = document.getElementById("SendButton");
 var TextInput = document.getElementById("TextInput");
 var InputUser = document.getElementById("InputUser");
-
-var MiddleContent = document.getElementById("MiddleContent");
 
 const TextBox = document.createElement("div");
 const user = document.createElement("code");
@@ -43,7 +45,7 @@ var SentMessage = "";
 var username = InputUser.innerHTML;
 
 TextBox.id = "TextBox";
-TextBox.style.bottom = "90%";
+TextBox.style.bottom = "0%";
 
 user.id = "Fonts";
 user.className = "User";
@@ -83,8 +85,6 @@ if(VNum == null)
 valuenum = 30;}
 else
 {valuenum = parseVNum;}
-
-localStorage.clear();
 
 if(parseValue > i)
 {i = parseValue;}
