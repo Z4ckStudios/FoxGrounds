@@ -1,20 +1,5 @@
 # Project FoxGrounds - Overview
-
-<html>
-<head>
-</head>
-<body>
-  <p>Link: <a id="PFGLink">https://z4ckstudios.github.io/FoxGrounds/</a></p>
-  
-  <script>
-  var PFGLink = document.getElementById("PFGLink");
-  
-  PFGLink.addEventListener("click", () => {
-    window.open("https://z4ckstudios.github.io/FoxGrounds/");
-  })
-  </script>
-</body>
-</html>
+<p>Link: https://z4ckstudios.github.io/FoxGrounds/</p>
 
 ### Description:
 <div>Welcome to Project FoxGrounds! (FoxGrounds for short)</div>
