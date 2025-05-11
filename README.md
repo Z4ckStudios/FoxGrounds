@@ -19,10 +19,17 @@ and as the project evolves, I'm hoping for limitless possibilities!!</div>
 ### Disclaimer:
 <p>FoxGrounds is not made out of hate for Discord but I feel like I speak for most when I say that a free customizable chat service would benefit a lot of people!</p>
 
-<script>
+<html>
+<head>
+</head>
+<body>
+  <script>
   var PFGLink = document.getElementById("PFGLink");
   
   PFGLink.addEventListener("click", () => {
     window.open("https://z4ckstudios.github.io/FoxGrounds/");
   })
-</script>
+  </script>
+</body>
+</html>
+
