@@ -11,7 +11,7 @@
 <div>Imagine a chat service where you can completely customize every aspect to your liking,
   fonts would be server-sided to allow great diversity,
   you would be able to customize chat frames,
-and as the evolves, I'm hoping for limitless possibilities!!</div>
+and as the project evolves, I'm hoping for limitless possibilities!!</div>
 
 <p></p>
 <div>The best part? This'll all be done for completely free!</div>
