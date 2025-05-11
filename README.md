@@ -1,5 +1,5 @@
 # Project FoxGrounds - Overview
-<p>Link: <a href="https://z4ckstudios.github.io/FoxGrounds/">https://z4ckstudios.github.io/FoxGrounds/</a></p>
+<p>Link: <a href="https://z4ckstudios.github.io/FoxGrounds/" target="_blank">https://z4ckstudios.github.io/FoxGrounds/</a></p>
 
 ### Description:
 <div>Welcome to Project FoxGrounds! (FoxGrounds for short)</div>
