@@ -1,5 +1,5 @@
 var url = "https://z4ckstudios.github.io/FoxGrounds/";
-// window.history.replaceState(null, document.title, url);
+window.history.replaceState(null, document.title, url);
 
 var backgroundBox = document.getElementById("backgroundBox");
 var MiddleContent = document.getElementById("MiddleContent");
