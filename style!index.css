@@ -106,7 +106,7 @@ body {
 }
 #MiddleContent {
     position: absolute;
-    top: 16vw;
+    top: 14vw;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -116,7 +116,7 @@ body {
 }
 #MiddleText {
     position: absolute;
-    top: 23.5vw;
+    top: 26.5vw;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "Arial";
@@ -199,6 +199,7 @@ body {
     }
     #TextBox {
         width: 85vw;
+        font-size: 3vw;
     }
 }
 @media only screen and (max-height: 500px) {
