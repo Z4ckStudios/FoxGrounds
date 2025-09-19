@@ -7,7 +7,7 @@ Link: <a href="https://z4ckstudios.github.io/FoxGrounds/">Click here to be redir
 <div>I like Discord but I'd rather not pay for subscription based services..</div>
 
 <p></p>
-<div>What is FoxGrounds?</div>
+<div>What is FoxGrounds?:</div>
 <div>Imagine a chat service where you can completely customize every aspect to your liking,
   fonts would be server-sided to allow great diversity,
   you would be able to customize chat frames,
