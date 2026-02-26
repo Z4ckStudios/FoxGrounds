@@ -1,5 +1,7 @@
-var url = "../";
-window.history.replaceState(null, document.title, url);
+if(document.baseURI == "https://z4ckstudios.github.io/FoxGrounds/") {
+    var url = "../FoxGrounds/";
+    window.history.replaceState(null, document.title);
+}
 
 // localStorage.clear();
 
