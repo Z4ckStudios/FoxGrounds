@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idle</title>
+    <link rel="stylesheet" type="text/css" href="style!idle.css">
+</head>
+<body>
+    <div id="idleDiv">
+        <p></p>
+        <li><code class="BText" id="idleText">AFK:</code></li>
+        <li style="opacity: 0;">-</li>
+        <li><code class="MText" id="idleText">Main Problem:</code></li>
+        <li><code class="CText" id="idleText">Current Plans:</code></li>
+    </div>
+
+    <code id="TFGP">FoxGrounds Project</code>
+
+    <!-- Scripts -->
+     <script>
+        var BText = document.querySelector(".BText");
+        var MText = document.querySelector(".MText");
+        var CText = document.querySelector(".CText");
+        var Status = "False";
+        var Problem = "Everything keeps wrapping back around to the database.";
+        
+        var Currents = [
+            " Account System",
+            " User Database",
+        ];
+
+        BText.innerHTML = BText.innerHTML + " " + Status;
+        MText.innerHTML = MText.innerHTML + " " + Problem;
+        CText.innerHTML = CText.innerHTML +
+        " " + Currents;
+     </script>
+</body>
+</html>

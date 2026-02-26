@@ -1,0 +1,49 @@
+body {
+    animation: backChange infinite;
+    animation-duration: 15s;
+}
+@keyframes backChange {
+    0%{background: red;}
+    15%{background: orange;}
+    22.5%{background: yellow;}
+    50%{background: limegreen;}
+    65%{background: blue;}
+    72.5%{background: indigo;}
+    85%{background: violet;}
+    100%{background: red;}
+}
+#idleDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333333;
+    opacity: 0.5;
+    width: 90%;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 25px;
+    border: 5px solid #000000;
+    list-style: none;
+}
+#idleText {
+    position: relative;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 15px;
+}
+#TFGP {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 40px;
+    text-wrap: nowrap;
+    font-family: Arial;
+    text-shadow: 0px 5px 1px #555555;
+    -webkit-text-stroke: #CCCCCC 2px;
+}

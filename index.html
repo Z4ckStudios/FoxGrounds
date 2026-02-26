@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="assets/images/PFG-Logo.png" type="PFG/icon">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project FoxGrounds</title>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+</head>
+<body>
+    <!-- <form action="index.php" method="post">
+        <label>Email: </label>
+        <input style="position: absolute; left: 9vw;" type="text" name="email"><br>
+        <label>Username: </label>
+        <input style="position: absolute; left: 9vw;" type="text" name="username"><br>
+        <label>Password: </label>
+        <input style="position: absolute; left: 9vw;" type="password" name="password"><br>
+        <input type="submit" name="signUp" value="Sign Up"><br>
+        <br>
+    </form> -->
+
+    <!-- <?php
+        // session_start();
+
+        // if(empty($_SESSION["emails"])) {
+        //     $_SESSION["emails"] = array("");
+        //     $_SESSION["usernames"] = array("");
+        //     $_SESSION["csUsernames"] = array("");
+        //     $_SESSION["passwords"] = array("");
+        // }
+
+        // if(isset($_POST["signUp"])) {
+        //     $email = $_POST["email"];
+        //     $username = $_POST["username"];
+        //     $password = $_POST["password"];
+
+        //     if(empty($email) || empty($username) || empty($password)) {
+        //         echo "Some details are missing!<br>";
+        //         echo "<br>";
+        //     }
+        //     elseif(in_array(strtolower($username), $_SESSION["usernames"])) {
+        //         echo "That account already exists!<br>";
+        //         echo "<br>";
+        //     } else {
+        //         array_push($_SESSION["emails"], strtolower($email));
+        //         array_push($_SESSION["usernames"], strtolower($username));
+        //         array_push($_SESSION["csUsernames"], $username);
+        //         array_push($_SESSION["passwords"], $password);
+
+        //         echo "Please check your email.<br>";
+        //         echo "<br>";
+        //     }
+        // }
+    ?> -->
+
+    <!-- <form action="index.php" method="post">
+        <label>Username: </label>
+        <input style="position: absolute; left: 9vw;" type="text" name="usernameLogin"><br>
+        <label>Password: </label>
+        <input style="position: absolute; left: 9vw;" type="password" name="passwordLogin"><br>
+        <input type="submit" name="login" value="Log In"><br>
+        <br>
+    </form> -->
+
+    <!-- <?php
+        // if(isset($_POST["login"])) {
+        //     $uL = $_POST["usernameLogin"];
+        //     $pL = $_POST["passwordLogin"];
+
+        //     if(empty($uL) || empty($pL)) {
+        //         echo "Some details are missing!<br>";
+        //     } else {
+        //         if(!in_array(strtolower($uL), $_SESSION["usernames"]) ||
+        //         !in_array($pL, $_SESSION["passwords"])) {
+        //             echo "Username or password is incorrect.<br>";
+        //         }
+        //         for($x; $x < count($_SESSION["emails"]); $x++) {
+        //             if(strtolower($uL) == $_SESSION["usernames"][$x] && $pL == $_SESSION["passwords"][$x]) {
+        //                 echo "Welcome, " . $_SESSION["csUsernames"][$x] . "!<br>";
+        //             }
+        //         }
+        //     }
+        // }
+    ?> -->
+
+    <div id="BB2" action="index.php" method="post">
+        <div id="backgroundBox">
+            <p></p>
+
+            <div id="MiddleContent">
+                <img id="PFGLogo" src="assets/images/PFG-Logo.png">
+                <code id="MiddleText">Welcome to the beginning of the public FoxGrounds history!</code>
+            </div>
+        </div>
+        <div id="InputBox">
+            <p id="InputUser">AnonUser</p>
+
+            <p contenteditable="true" id="TextInput"></p>
+            <span id="SendButton">Send</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/index.js"></script>
+</body>
+</html>
