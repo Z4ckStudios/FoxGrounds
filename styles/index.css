@@ -1,0 +1,224 @@
+body {
+    background: black;
+    padding: 0px;
+    margin: 0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#TextBox {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 96.5vw;
+    font-size: 1.45vw;
+    border: 5px solid transparent;
+    text-wrap: wrap;
+}
+#Fonts {
+    font-family: Arial;
+}
+.User {
+    color: #FFCCFF;
+}
+.Message {
+    color: #FF99FF;
+    margin-left: 5px;
+}
+#backgroundBox {
+    position: relative;
+    width: 99.3vw;
+    height: 40.3vw;
+    background-size: 100vw;
+    background: #331133;
+    border: 5px solid #220022;
+    background-repeat: repeat-y;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: image-set("../assets/images/SwirlyBackground.png");
+}
+#BB2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+#InputBox {
+    position: relative;
+    top: -2vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 4.5vw;
+    background: #220022;
+    overflow: visible;
+}
+#InputUser {
+    position: relative;
+    top: 0.5vw;
+    left: 0.65vw;
+    height: 2.5vw;
+    width: 20.5vw;
+    font-size: 2vw;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Arial;
+    text-align: center;
+    font-weight: bold;
+    color: #FFCCFF;
+    background: #330033;
+}
+#TextInput {
+    position: relative;
+    top: -4.8vw;
+    left: 22.6vw;
+    width: 69.25vw;
+    height: 2.5vw;
+    font-size: 1.14vw;
+    padding: 5px;
+    border-radius: 5px;
+    color: #FFCCFF;
+    background: #770077;
+    text-wrap: wrap;
+    outline: none;
+    font-family: Times;
+    overflow-y: hidden;
+}
+#SendButton {
+    position: relative;
+    top: -8.75vw;
+    left: 93.3vw;
+    font-size: 2vw;
+    padding: 0.5vw;
+    border-radius: 5px;
+    color: #FFCCFF;
+    font-family: Arial;
+    font-weight: bold;
+    background: transparent;
+    user-select: none;
+}
+#MiddleContent {
+    position: absolute;
+    top: 14vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#PFGLogo {
+    width: 25vw;
+    height: 25vw;
+}
+#MiddleText {
+    position: absolute;
+    top: 26.5vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.9vw;
+    color: #FF99FF;
+    font-family: Arial;
+    text-wrap: nowrap;
+    font-weight: bold;
+}
+::-webkit-scrollbar {
+    background: #551155;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-button {
+    background: #331133;
+    border: 1px solid #990099;
+    border-radius: 10px;
+
+}
+::-webkit-scrollbar-button:hover {
+    background: #221122;
+    border: 2px solid #990099;
+    border-radius: 10px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+    background: #441144;
+    border: 1px solid #990099;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #331133;
+    border: 2px solid #990099;
+    border-radius: 10px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-track-piece {
+    border: 1px solid #990099;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-corner {
+    background: none;
+}
+@media only screen and (max-width: 600px) {
+    #backgroundBox {
+        height: 160vw;
+    }
+    #InputBox {
+        height: 10.25vw;
+    }
+    #InputUser {
+        height: 5.6vw;
+        align-content: center;
+    }
+    #MiddleContent {
+        top: 50vw;
+    }
+    #PFGLogo {
+        width: 70vw;
+        height: 70vw;
+    }
+    #MiddleText {
+        top: 91vw;
+        font-size: 9vw;
+        text-wrap: wrap;
+        text-align: center;
+        width: 90vw;
+    }
+    #TextInput {
+        top: -9.6vw;
+        left: 24.2vw;
+        height: 5.5vw;
+        width: 64vw;
+    }
+    #SendButton {
+        top: -17vw;
+        left: 90vw;
+        padding: 2vw;
+        font-size: 3vw;
+    }
+    #TextBox {
+        width: 85vw;
+        font-size: 3vw;
+    }
+}
+@media only screen and (max-height: 500px) {
+    #InputUser {
+        height: 1.75vw;
+        line-height: 1.9vw;
+    }
+    #PFGLogo {
+        width: 15vw;
+        height: 15vw;
+    }
+    #MiddleText {
+        top: 15.5vw;
+        font-size: 1.5vw;
+    }
+    #MiddleContent {
+        top: 15vw;
+    }
+    #TextInput {
+        top: -4.45vw;
+        height: 1.7vw;
+        width: 69vw;
+    }
+    #SendButton {
+        top: -8.1vw;
+        left: 93.7vw;
+    }
+    #TextBox {
+        width: 95vw;
+    }
+}
