@@ -9,20 +9,38 @@ body {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
+    background: #882288;
     width: 96.5vw;
     font-size: 1.45vw;
-    border: 5px solid transparent;
+    border-radius: 10px;
+    padding: 10px;
+    border: 5px solid #662266;
     text-wrap: wrap;
 }
 #Fonts {
     font-family: Arial;
 }
+.PlaceholderBox {
+    display: none;
+}
 .User {
     color: #FFCCFF;
+    font-weight: bold;
 }
 .Message {
+    position: absolute;
+    margin-left: 10px;
     color: #FF99FF;
-    margin-left: 5px;
+    width: 70vw;
+}
+.DateTime {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #FF99FF;
 }
 #backgroundBox {
     position: relative;
@@ -81,7 +99,7 @@ body {
     text-wrap: wrap;
     outline: none;
     font-family: Times;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 #SendButton {
     position: relative;

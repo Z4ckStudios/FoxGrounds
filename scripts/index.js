@@ -1,3 +1,5 @@
+import devtools from "../node_modules/devtools-detect/index.js";
+
 if(document.baseURI == "https://z4ckstudios.github.io/FoxGrounds/") {
     var url = "../FoxGrounds/";
     window.history.replaceState(null, document.title);
@@ -6,20 +8,17 @@ if(document.baseURI == "https://z4ckstudios.github.io/FoxGrounds/") {
 // localStorage.clear();
 
 var backgroundBox = document.getElementById("backgroundBox");
-var MiddleContent = document.getElementById("MiddleContent");
 
 var SendButton = document.getElementById("SendButton");
 var TextInput = document.getElementById("TextInput");
 var InputUser = document.getElementById("InputUser");
 
-const TextBox = document.createElement("div");
-const user = document.createElement("code");
-const message = document.createElement("code");
-const BoldUser = document.createElement("b");
+var TextBox = document.getElementById("TextBox");
+var User = document.querySelector(".User");
+var Message = document.querySelector(".Message");
+var DateTime = document.querySelector(".DateTime");
 
-var prevMsgs = localStorage.getItem("prevMsgs");
-var prevMsgText = localStorage.getItem("prevMsgText");
-var prevMsgPos = localStorage.getItem("prevMsgPos");
+var prevMsgBox = localStorage.getItem("prevMsgBox");
 var iValue = localStorage.getItem("iValue");
 var VNum = localStorage.getItem("VNum");
 
@@ -34,35 +33,36 @@ var VNum = localStorage.getItem("VNum");
 //     dataList.push(value);
 // })
 
-// var prevMsgs = document.getElementById("dataValue0").textContent;
-// var prevMsgText = document.getElementById("dataValue1").textContent;
-// var prevMsgPos = document.getElementById("dataValue2").textContent;
-// var iValue = document.getElementById("dataValue3").textContent;
-// var VNum = document.getElementById("dataValue4").textContent;
+var checkListText = [
+    "CHECKLIST:",
+    "- Check if a message is inside of quotations before calling split at the position of a comma ✓",
+    "- Check for a User in devtools to prevent them from sending a message ✓",
+    "- Make a better date and time format ✓",
+    "- Allow users to lengthen messages by pressing Shift + Enter",
+    "- Make an accounts system",
+    "- Connect FoxGrounds to firebase",
+    "- Launch a development version!",
+];
 
-console.log(prevMsgs);
-console.log(prevMsgText);
-console.log(prevMsgPos);
-console.log(iValue);
-console.log(VNum);
+checkListText.forEach(text => {
+    console.log(text);
+})
 
 var toLogBox = [];
-// var toLogUser = [];
-var toLogMsg = [];
 
-var toLogBoxPos = [];
+var canSend = true;
 
-var tlb = -1;
-var tlbp = -1;
-var tlm = -1;
+if(iValue == null) {
+    iValue = iValue;
+}
 
-if(iValue == null)
-{iValue = iValue;}
-else
-{var splitPrev = prevMsgs.split(",");
-var splitPrevPos = prevMsgPos.split(",");
-toLogBox = splitPrev;
-toLogBoxPos = splitPrevPos;}
+function checkDevTools() {
+    if(devtools.isOpen == true) {
+        canSend = false;
+    } else {
+        canSend = true;
+    }
+}
 
 // location.replace("idle.html");
 
@@ -71,21 +71,13 @@ var messageDelay = false;
 var SentMessage = "";
 var username = InputUser.innerHTML;
 
-TextBox.id = "TextBox";
-TextBox.style.bottom = "0%";
+User.textContent = username + ": ";
 
-user.id = "Fonts";
-user.className = "User";
-user.textContent = username + ": ";
-
-message.id = "Fonts";
-message.className = "Message";
-message.style.fontFamily = "Times";
-
-if(InputUser.innerHTML == "ACCOUNTNULL")
-{TextInput.innerHTML = "Please make an account to chat!";}
-else
-{TextInput.innerHTML = "";}
+if(InputUser.innerHTML == "ACCOUNTNULL") {
+    TextInput.innerHTML = "Please make an account to chat!";
+} else {
+    TextInput.innerHTML = "";
+}
 
 document.addEventListener("keydown",
 function() {
@@ -111,44 +103,44 @@ var parseValue = parseInt(iValue);
 var parseVNum = parseInt(VNum);
 parseValue += 1;
 
-if(VNum == null)
-{VNum = VNum;
-valuenum = 30;}
-else
-{valuenum = parseVNum;}
+if(VNum == null) {
+    VNum = VNum;
+valuenum = 30;
+} else {
+    valuenum = parseVNum;
+}
 
-if(parseValue > i)
-{i = parseValue;}
+if(parseValue > i) {
+    i = parseValue;
+}
 
 function getHeight(eHeight) {
     var TBPerHeight = eHeight.offsetHeight;
     return TBPerHeight;
 }
 
-for(x = 1; x < toLogBox.length + 1; x++) {
-    if(prevMsgs !== "null") {
-        var TB = TextBox.cloneNode(true);
-        var U = user.cloneNode(true);
-        var M = message.cloneNode(true);
-        var BU = BoldUser.cloneNode(true);
+var TBList = [];
 
-        var parseTLM = JSON.parse(prevMsgText);
-        toLogMsg = parseTLM;
+for(var x = 0; x < iValue; x++) {
+    if(prevMsgBox !== "null") {
+        var TB = TextBox.cloneNode();
 
-        tlb < toLogBox.length ? tlb++ : tlb - tlb;
-        tlbp < toLogBoxPos.length ? tlbp++ : tlbp - tlbp;
-        tlm < toLogMsg.length ? tlm++ : tlm - tlm;
-
-        console.log(parseTLM[tlm]);
-
-        TB.className = toLogBox[tlb];
-        TB.style.bottom = toLogBoxPos[tlbp] + "px";
-        M.textContent = parseTLM[tlm];
+        var parseTLBI = JSON.parse(prevMsgBox);
+        toLogBox = parseTLBI;
 
         backgroundBox.appendChild(TB);
-        TB.appendChild(BU);
-        TB.appendChild(M);
-        BU.appendChild(U);
+        TBList.push(TB);
+    }
+}
+
+var a = 0;
+
+for(var x = 0; x < TBList.length; x++) {
+    if(prevMsgBox !== "null") {
+        TBList[x].className = "M" + parseInt(x+1);
+        TBList[x].outerHTML = toLogBox[x];
+        
+        a += 1;
     }
 }
 
@@ -167,43 +159,41 @@ function Formats() {
     let hourFormat = "";
     let minuteFormat = "";
 
-    if(hour < 10)
-    {hourFormat = "0" + hour;}
-    else
-    {hourFormat = hour;}
-    if(minute < 10)
-    {minuteFormat = "0" + minute;}
-    else
-    {minuteFormat = minute;}
+    if(hour < 10) {
+        hourFormat = "0" + hour;
+    } else {
+        hourFormat = hour;
+    }
 
-    let date = month + "." + day + "." + year;
+    if(minute < 10) {
+        minuteFormat = "0" + minute;
+    } else {
+        minuteFormat = minute;
+    }
+
+    let date = month + "/" + day + "/" + year;
     let time = hourFormat + ":" + minuteFormat;
 
-    UserMsgs = [
+    var UserMsgs = [
         SentMessage,
     ];
     UserMsgs.forEach(UserMsg => {
-        message.textContent = UserMsg +
-        " | " + date + " * " + time;
+        Message.innerHTML = UserMsg;
     });
 
-    var EClass = "E" + i;
-
-    TextBox.className = EClass;
+    DateTime.textContent = date + " * " + time;
 
     localStorage.setItem("iValue", i);
 
-    fetch("data/recieve/iV.php", {
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": JSON.stringify(i)
-    }).then(function(reply) {
-        return reply.text();
-    }).then(function(data) {
-        console.log(data);
-    })
+    // fetch("data/recieve/iV.php", {
+    //     "method": "POST",
+    //     "headers": {
+    //         "Content-Type": "application/json; charset=utf-8"
+    //     },
+    //     "body": JSON.stringify(i)
+    // }).then(function(reply) {
+    //     return reply.text();
+    // })
 
     var textRemoves = {
         "&nbsp;": " ",
@@ -216,55 +206,21 @@ function Formats() {
         ">": "",
         "/": "",
     };
-    var repMsg = message.textContent.replace(/&nbsp;|&gt;|&lt;|&amp;|div|<|>/gi, function (e) {
+    var repMsg = Message.textContent.replace(/&nbsp;|&gt;|&lt;|&amp;|div|<|>/gi, function (e) {
         return textRemoves[e]
     })
-    message.textContent = repMsg;
+    Message.textContent = repMsg;
 }
 
 function SendMessage() {
     var TB = TextBox.cloneNode(true);
-    var U = user.cloneNode(true);
-    var M = message.cloneNode(true);
-    var BU = BoldUser.cloneNode(true);
     
+    TB.className = "M" + i;
     i += 1;
-
-    toLogBox.push(TextBox.className);
-    toLogMsg.push(message.textContent);
-
-    var stringTLM = JSON.stringify(toLogMsg);
-
-    localStorage.setItem("prevMsgs", toLogBox);
-    localStorage.setItem("prevMsgText", stringTLM);
-
-    fetch("data/recieve/pM.php", {
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": JSON.stringify(toLogBox)
-    }).then(function(reply) {
-        return reply.json();
-    }).then(function(data) {
-        console.log(data);
-    })
-
-    fetch("data/recieve/pMT.php", {
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        "body": JSON.stringify(stringTLM)
-    }).then(function(reply) {
-        return reply.json();
-    }).then(function(data) {
-        console.log(data);
-    })
 
     TextInput.innerHTML = "";
 
-    ScrollToBottom = setInterval(STBInt, 100);
+    var ScrollToBottom = setInterval(STBInt, 100);
 
     function STBInt() {
         backgroundBox.scrollBy(0, -1 * valuenum);
@@ -279,40 +235,21 @@ function SendMessage() {
 
         if(quickTimer > 1)
         {var MinusI = i - 1;
-        var perE = ".E" + MinusI;
+        var perM = ".M" + MinusI;
 
-        var BoxNum = document.querySelector(perE);
-    
+        var BoxNum = document.querySelector(perM);
+        var BNMsg = BoxNum.querySelector(".Message");
+        
+        TB.style.height = BNMsg.getBoundingClientRect().height + "px";
+
         valuenum -= getHeight(BoxNum);
         TB.style.bottom = valuenum + "px";
+    
+        toLogBox.push(TB.outerHTML);
+        var stringTLBI = JSON.stringify(toLogBox);
 
-        toLogBoxPos.push(valuenum);
-        localStorage.setItem("prevMsgPos", toLogBoxPos);
+        localStorage.setItem("prevMsgBox", stringTLBI);
         localStorage.setItem("VNum", valuenum);
-
-        fetch("data/recieve/pMP.php", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            "body": JSON.stringify(toLogBoxPos)
-        }).then(function(reply) {
-            return reply.json();
-        }).then(function(data) {
-            console.log(data);
-        })
-
-        fetch("data/recieve/VN.php", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            "body": JSON.stringify(valuenum)
-        }).then(function(reply) {
-            return reply.text();
-        }).then(function(data) {
-            console.log(data);
-        })
         
         clearInterval(quickInterval);}
     }
@@ -332,35 +269,34 @@ function SendMessage() {
     }
 
     backgroundBox.appendChild(TB);
-    TB.appendChild(BU);
-    TB.appendChild(M);
-    BU.appendChild(U);
 }
 
 TextInput.addEventListener("keypress",
 function(e) {
-    if(e.key == "Enter")
-    {
-        Formats();
+    checkDevTools();
 
-        if(InputUser.innerHTML == "ACCOUNTNULL")
-            {return}
-        else
-        if(TextInput.innerHTML == "" || TextInput.innerHTML == "<br>" || TextInput.innerHTML == "&nbsp;" || TextInput.innerHTML == "/" || TextInput.innerHTML.includes("<div><br>"))
-            {return}
-        else
-        if(messageDelay == false) {
-            SendMessage();
+    if(canSend == true) {
+        if(e.key == "Enter") {
+            Formats();
 
-            var msgTimer = 0;
-            const msgInterval = setInterval(msgInt, 1);
+            if(InputUser.innerHTML == "ACCOUNTNULL") {
+                return
+            } else if(TextInput.innerHTML == "" || TextInput.innerHTML == "<br>" || TextInput.innerHTML == "&nbsp;" || TextInput.innerHTML == "/" || TextInput.innerHTML.includes("<div><br>")) {
+                return
+            } else if(messageDelay == false) {
+                SendMessage();
 
-            function msgInt() {
-                msgTimer++
+                var msgTimer = 0;
+                const msgInterval = setInterval(msgInt, 1);
 
-                if(msgTimer > 1)
-                {TextInput.innerHTML = "";
-                clearInterval(msgInterval);}
+                function msgInt() {
+                    msgTimer++
+
+                    if(msgTimer > 1) {
+                        TextInput.innerHTML = "";
+                        clearInterval(msgInterval);
+                    }
+                }
             }
         }
     }
@@ -368,16 +304,18 @@ function(e) {
 
 SendButton.addEventListener("click",
 function() {
-    Formats();
-    
-    if(InputUser.innerHTML == "ACCOUNTNULL")
-        {return}
-    else
-    if(TextInput.innerHTML == "" || TextInput.innerHTML == "<br>" || TextInput.innerHTML == "&nbsp;" || TextInput.innerHTML == "/" || TextInput.innerHTML.includes("<div><br>"))
-        {return}
-    else
-    if(messageDelay == false) {
-        SendMessage();
+    checkDevTools();
+
+    if(canSend == true) {
+        Formats();
+
+        if(InputUser.innerHTML == "ACCOUNTNULL") {
+            return
+        } else if(TextInput.innerHTML == "" || TextInput.innerHTML == "<br>" || TextInput.innerHTML == "&nbsp;" || TextInput.innerHTML == "/" || TextInput.innerHTML.includes("<div><br>")) {
+            return
+        } else if(messageDelay == false) {
+            SendMessage();
+        }
     }
 })
 SendButton.addEventListener("mouseover",
