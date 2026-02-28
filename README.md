@@ -2,7 +2,7 @@
 Link: <a href="https://z4ckstudios.github.io/FoxGrounds/">Click here to be redirected!</a></p>
 
 ### Description:
-<div>Welcome to Project FoxGrounds! (FoxGrounds for short)</div>
+<div>Welcome to Project FoxGrounds!</div>
 <div>Say... Do you know what Discord is? If not, head on over to https://discord.com.</div>
 <div>I like Discord but I'd rather not pay for subscription based services...</div>
 
