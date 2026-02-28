@@ -1,8 +1,8 @@
-import devtools from "../node_modules/devtools-detect/index.js";
+import devtools from "./devtools-detect/index.js";
 
 if(document.baseURI == "https://z4ckstudios.github.io/FoxGrounds/") {
     var url = "../FoxGrounds/";
-    window.history.replaceState(null, document.title);
+    window.history.replaceState(null, document.title, url);
 }
 
 // localStorage.clear();
